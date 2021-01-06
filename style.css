@@ -1,0 +1,104 @@
+body {
+    font-family: sans-serif;
+}
+
+
+/* Centraliza o container */
+
+.container {
+    width: 100%;
+    /*largura*/
+    height: 100vh;
+    /*altura*/
+    display: flex;
+    /*exibição*/
+    justify-content: center;
+    /*conteúdo*/
+    align-items: center;
+    /*alinhamento*/
+}
+
+
+/*imagem*/
+
+.card {
+    height: 400px;
+    width: 500px;
+    background-image: url('img/winter.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    /*cobrir a área toda*/
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Onde começa os efeitos*/
+    filter: grayscale(0.5);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+/*Conteúdo do card*/
+
+.card-wrapper {
+    text-align: center;
+    display: flex;
+    /*alinha um abaixo do outro*/
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+/*Elemento filho*/
+
+.card-wrapper::before {
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border: 1px solid white;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card-wrapper h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    /*Espaço em cada letra*/
+    letter-spacing: 4px;
+    margin: 0;
+    transition: 0.3s;
+}
+
+.card-wrapper p {
+    font-size: 0;
+    visibility: hidden;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+
+/*animação*/
+
+.card:hover {
+    filter: unset;
+}
+
+.card:hover>.card-wrapper::before {
+    height: 300px;
+    width: 400px;
+    opacity: 1;
+}
+
+.card:hover>.card-wrapper p {
+    opacity: 1;
+    visibility: visible;
+    font-size: 14px;
+}
